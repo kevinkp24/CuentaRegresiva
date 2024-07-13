@@ -1,0 +1,25 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#titulo{
+    font-size: 3rem;
+    text-align: center;
+    width: 50%;
+}
+
+#contador-container {
+    text-align: center;
+    width: 50%;
+}
+
+#contador {
+    font-size: 3em;
+    color: #333;
+}

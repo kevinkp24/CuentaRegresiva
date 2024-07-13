@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta regresiva</title>
+    <link rel="shortcut icon" href="relog.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="titulo">
+        <p>Colombia Vs Argentina</p>
+    </div>
+    <div id="contador-container">
+        <h1 id="contador"></h1>
+    </div>
+
+    <script>
+        const eventoFecha = new Date('2024-07-14T19:00:00').getTime();
+
+        const actualizarContador = () => {
+            const ahora = new Date().getTime();
+            const distancia = eventoFecha - ahora;
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById("contador").innerHTML =
+                dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
+
+            if (distancia < 0) {
+                clearInterval(intervalo);
+                document.getElementById("contador").innerHTML = "¡El partido ha comenzado!";
+            }
+        };
+
+        const intervalo = setInterval(actualizarContador, 1000);
+    </script>
+</body>
+</html>
